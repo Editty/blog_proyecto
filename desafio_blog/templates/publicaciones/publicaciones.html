@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h1>TODAS MIS PUBLICACIONES</h1>{% csrf_token %}
+
+{% for post in publicaciones %}
+    
+<div class="card">
+  <div class="card-header">
+    {{ post.fecha }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ post.titulo }}</h5>
+    <p class="card-text">{{ post.post }}</p>
+    <a href="#" class="btn btn-primary">Me Gusta</a>
+  </div>
+</div>
+    
+{% endfor %}
+    
+{% endblock contenido %}
+
