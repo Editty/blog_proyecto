@@ -1,4 +1,6 @@
 from django.db import models
+from django.views.generic import ListView
+
 
 # Create your models here.
 
@@ -27,3 +29,9 @@ class Publicaciones(models.Model):
     
     def __str__(self):
         return self.titulo
+ 
+    
+
+
+
+
