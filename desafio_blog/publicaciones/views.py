@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Publicaciones
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from publicaciones.forms import CrearPublicacionForm
 from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -37,6 +37,16 @@ class EditarPost(LoginRequiredMixin, UpdateView):
     
     def get_success_url(self):
         return reverse('publicaciones:publicaciones')
+    
+# View que elimina un posteo ya existente:
+
+class EliminarPost(LoginRequiredMixin, DeleteView):
+    model = Publicaciones
+    template_name = 'publicaciones/eliminar-post.html'
+    
+    def get_success_url(self):
+        return reverse('publicaciones:publicaciones')
+    
     
     
     

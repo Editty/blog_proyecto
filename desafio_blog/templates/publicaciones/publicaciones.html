@@ -15,6 +15,7 @@
     <p class="card-text">{{post.creacion}}</p>
     <p class="card-text">{{ post.categoria }}</p>
     <a href="{% url 'publicaciones:editar-posteo' post.id %}" class="btn btn-primary">Editar Post</a>
+    <a href="{% url 'publicaciones:eliminar-posteo' post.id %}" class="btn btn-primary">Eliminar Post</a>
     <a href="#" class="btn btn-primary">Me Gusta</a>
   </div>
 </div>
