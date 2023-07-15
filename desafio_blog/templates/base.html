@@ -33,14 +33,14 @@
               </a>
               {% else %}
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Iniciar Sesion
+                Usuarios
               </a>
 
             {% endif %}
             
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="{% url 'usuarios:login' %}">Iniciar Sesion</a></li>
-              <li><a class="dropdown-item" href="#">Registrarse</a></li>
+              <li><a class="dropdown-item" href="{% url 'usuarios:registrar-usuario' %}">Registrarse</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="{% url 'usuarios:logout' %}">Cerrar Sesion</a></li>
             </ul>
