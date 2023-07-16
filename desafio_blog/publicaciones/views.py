@@ -32,7 +32,7 @@ class Postear(LoginRequiredMixin, CreateView):
     
     def form_valid(self, form):
         f = form.save(commit=False) # Esta linea de código pausa la ejecución del form y no lo guarda
-        f.creador_del_posteo_id = self.request.user.id
+        f.creador_id = self.request.user.id
         return super().form_valid(f)
     
 # View que actualiza/edita una publicacion ya existente
