@@ -1,3 +1,5 @@
+from django.forms.models import BaseModelForm
+from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Publicaciones
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
@@ -27,6 +29,11 @@ class Postear(LoginRequiredMixin, CreateView):
     
     def get_success_url(self):
         return reverse('publicaciones:publicaciones')
+    
+    def form_valid(self, form):
+        f = form.save(commit=False) # Esta linea de código pausa la ejecución del form y no lo guarda
+        f.creador_del_posteo_id = self.request.user.id
+        return super().form_valid(f)
     
 # View que actualiza/edita una publicacion ya existente
 

@@ -14,6 +14,7 @@
     <p class="card-text">{{ post.post }}</p>
     <p class="card-text">{{post.creacion}}</p>
     <p class="card-text">{{ post.categoria }}</p>
+    <p class="card-text">{{ post.creador}}</p>
     <div class="btn-group" role="group" aria-label="Default button group">
       <a href="#" class="btn btn-primary">Me Gusta</a>
       <a href="{% url 'publicaciones:editar-posteo' post.id %}" class="btn btn-primary">Editar Post</a>
