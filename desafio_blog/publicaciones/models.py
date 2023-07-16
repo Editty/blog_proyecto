@@ -1,4 +1,5 @@
 from django.db import models
+from usuarios.models import Usuario
 
 
 # Create your models here.
@@ -25,6 +26,7 @@ class Publicaciones(models.Model):
     post = models.TextField()
     update = models.DateTimeField(auto_now=True)
     categoria = models.ForeignKey(Categoria, on_delete= models.SET_NULL, related_name='posteos', null=True)
+    creador = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='posteos_usuario')
     
     def __str__(self):
         return self.titulo
