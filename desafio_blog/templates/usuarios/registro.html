@@ -2,11 +2,11 @@
 
 
 {% block contenido %}
-<h2>Crear un Usuario</h2>
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
+    <h2>Crear un Usuario</h2>
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
     <button type="submit" class="btn btn-success">Crear Usuario</button>
-</form>
+    </form>
 
     
 {% endblock contenido %}
