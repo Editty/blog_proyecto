@@ -26,10 +26,21 @@ class Publicaciones(models.Model):
     post = models.TextField()
     update = models.DateTimeField(auto_now=True)
     categoria = models.ForeignKey(Categoria, on_delete= models.SET_NULL, related_name='posteos', null=True)
-    creador = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='posteos_usuario')
+    creador_del_posteo = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='posteos_usuario')
     
     def __str__(self):
         return self.titulo
+    
+# Clase que renderiza los comentarios:
+
+class Comentario(models.Model):
+    texto = models.TextField()
+    fecha = models.DateField(auto_now_add=True)
+    relacion_post = models.ForeignKey(Publicaciones, on_delete=models.CASCADE, related_name='comentarioso')
+    autor = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='comentario_usuario')
+    
+    def __str__(self):
+        return self.relacion_post.titulo + '' + self.autor.first_name + '' +self.autor.last_name
  
     
 

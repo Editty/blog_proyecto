@@ -15,6 +15,7 @@
     <p class="card-text">{{post.creacion}}</p>
     <p class="card-text">{{ post.categoria }}</p>
 <<<<<<< HEAD
+<<<<<<< HEAD
     
     {% if user.is_authenticated %}
       <div class="btn-group" role="group" aria-label="Default button group">
@@ -30,6 +31,14 @@
       <a href="#" class="btn btn-primary">Me Gusta</a>
     {% endif %}
 
+=======
+    <p class="card-text">{{ post.creador_del_posteo }}</p>
+    <div class="btn-group" role="group" aria-label="Default button group">
+      <a href="{% url 'publicaciones:detalle-posteo' post.id %}" class="btn btn-primary">Ver mas</a>
+      <a href="{% url 'publicaciones:editar-posteo' post.id %}" class="btn btn-primary">Editar Post</a>
+      <a href="{% url 'publicaciones:eliminar-posteo' post.id %}" class="btn btn-danger">Eliminar Post</a>
+    </div>
+>>>>>>> Rama_B
   </div>
 </div>
     

@@ -1,6 +1,8 @@
 from django import forms
-from .models import Publicaciones
+from .models import Publicaciones, Comentario
 
+
+# Clase que crea un formulario para las publicaciones: 
 
 class CrearPublicacionForm(forms.ModelForm):
     class Meta:
@@ -14,3 +16,10 @@ class CrearPublicacionForm(forms.ModelForm):
             'post': forms.Textarea(attrs={'placeholder': 'Dejanos un Comentario aqui...', 'class': 'from-control'}),
         }
 
+
+# Clase que crea un formulario para los comentarios:
+
+class ComentarioForm(forms.ModelForm):
+    class Meta:
+        model = Comentario
+        fields = ['texto']

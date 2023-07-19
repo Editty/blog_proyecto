@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+  <div class="card m-4">
+    <div class="card">
+      <div class="card-header">
+        {{ detalle.fecha }}
+      </div>
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h6 class="card-title">{{ detalle.creador_del_posteo.first_name}} {{detalle.creador_del_posteo.last_name}}</h6>
+        <h5 class="card-title">{{ detalle.titulo }}</h5>
+        <p class="card-text">{{ detalle.post }}</p>
+        <p class="card-text">Fecha de actualizacion: <small class="text-body-secondary">{{detalle.update}}</small></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="comentarios-conteiner">
+    <h3>Comentarios</h3>
+
+    {% for comentario in detalle.comentarioso.all  %}
+
+    <div class="card">
+      <div class="card-body">
+        <h6>{{ comentario.autor.first_name}} {{ comentario.autor.last_name}}</h6>
+        <p>{{ comentario.texto}}</p>
+      </div>
+    </div>
+      
+    {% endfor %}    
+
+  </div>
+
+
+  <form method="post">
+    {% csrf_token %}
+    {{ formulario_comentario }}
+
+    <button type="submit">Comentar</button>
+  </form>
+
+  <a href="{% url 'publicaciones:publicaciones' %}" class="btn btn-primary">Volver a las publicaciones</a>
+    
+{% endblock contenido %}
+    
