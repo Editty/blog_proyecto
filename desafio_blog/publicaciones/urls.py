@@ -8,6 +8,6 @@ urlpatterns = [
     path('postear/', views.Postear.as_view(), name= 'postear'),
     path('editar-post/<int:pk>', views.EditarPost.as_view(), name='editar-posteo'),
     path('eliminar-post/<int:pk>', views.EliminarPost.as_view(), name='eliminar-posteo'),
-    path('detalle-post/<int:pk>', views.PostDetalle.as_view(), name='detalle-posteo')
-    
+    path('detalle-post/<int:pk>', views.PostDetalle.as_view(), name='detalle-posteo'),
+    path('borrar-comentario/<int:pk>', views.BorrarComentarioView.as_view(), name='borrar-comentario')
 ]

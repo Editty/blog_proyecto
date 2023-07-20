@@ -25,6 +25,7 @@
       <div class="card-body">
         <h6>{{ comentario.autor.first_name}} {{ comentario.autor.last_name}}</h6>
         <p>{{ comentario.texto}}</p>
+        <a href="{% url 'publicaciones:borrar-comentario' comentario.id %}" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Borrar Comentario</a>
       </div>
     </div>
       

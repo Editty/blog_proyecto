@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Publicaciones
+from .models import Publicaciones, Comentario
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from publicaciones.forms import CrearPublicacionForm, ComentarioForm
 from django.urls import reverse
@@ -52,13 +52,7 @@ class EliminarPost(SuperUsuarioAutorMixin, LoginRequiredMixin, DeleteView):
     
     def get_success_url(self):
         return reverse('publicaciones:publicaciones')
-    
-    
-    
-    
-    
-    
-    
+      
 
 # Views que se encarga de mostrar un objeto en detalle:
 
@@ -87,5 +81,12 @@ class PostDetalle(DetailView):
         else:
             return super().get(request)
        
-    
 
+# View que borra comentarios
+class BorrarComentarioView(DeleteView):
+    model = Comentario
+    template_name = 'publicaciones/borrar-comentario.html'
+    
+    def get_success_url(self):
+        return reverse('publicaciones:detalle-posteo', args = [self.object.relacion_post.id])
+    
