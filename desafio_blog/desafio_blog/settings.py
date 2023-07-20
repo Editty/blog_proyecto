@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'core',
     'publicaciones',
     'usuarios',
+    'noticias',
 ]
 
 MIDDLEWARE = [

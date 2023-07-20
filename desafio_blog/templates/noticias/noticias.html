@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block contenido %}
+    
+    {% for noticia in noticias %}
+        <h4>Noticias</h4>
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">{{ noticia.fecha}}</h5>
+            <h5 class="card-title">{{ noticia.titulo}}</h5>
+            <p class="card-text">{{ noticia.texto }}</p>
+            </div>
+        </div>
+    
+    {% endfor %}
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'noticias:publicar-noticia' %}" class="btn btn-success">Crear una noticia</a>
+    {% else %}
+        <a href="#" class="btn btn-primary">Indagar más</a>
+    {% endif %}
+        
+{% endblock contenido %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block contenido %}
+    <h2>Noticia</h2>
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="submit" class="btn btn-success">Publicar</button>
+        </div>
+    </form>
+{% endblock contenido %}
+    
