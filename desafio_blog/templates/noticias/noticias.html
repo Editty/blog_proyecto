@@ -17,17 +17,24 @@
             </div>
 
             {% if user.is_authenticated %}
-                <div class="btn-group" style="margin-left: 1px;">
+                <div class="btn-group" style="margin-left: 3mb;">
                     <a href="{% url 'noticias:editar-noticia' noticia.id %}" class="btn btn-success"><i class="fa-solid fa-file-pen"></i>  Editar noticia</a>
+                    <a href="{% url 'noticias:eliminar-noticia' noticia.id %}" class="btn btn-danger">Eliminar Noticia</a>
                 </div>
-            {% else %}
-                <a href="#" class="btn btn-primary">Indagar mas</a>
             {% endif %}
 
         </div>
     {% endfor %}
 
-    <a href="{% url 'noticias:publicar-noticia' %}" class="btn btn-success"><i class="fa-solid fa-book"></i>    Crear una noticia</a>
+    {% if user.is_authenticated %}
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <a href="{% url 'noticias:publicar-noticia' %}" class="btn btn-success"><i class="fa-solid fa-book"></i>    Crear una noticia</a>
+        </div>
+    {% else %}
+        <div class="d-grid gap-2 col-6 mx-auto"></div>
+        <a href="{% url 'usuarios:login' %}" class="btn btn-primary m-3">LOGUEATE PARA PUBLICAR</a>
+        </div>
+    {% endif %}
 
 
 {% endblock contenido %}

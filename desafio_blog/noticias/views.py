@@ -2,7 +2,7 @@ from typing import Any
 from django.db.models.query import QuerySet
 from django.shortcuts import render
 from .models import Noticias
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse
 from .forms import CrearNoticiasForm
 
@@ -36,5 +36,12 @@ class EditarNoticia(UpdateView):
     template_name = 'noticias/editar-noticias.html'
     form_class = CrearNoticiasForm
 
+    def get_success_url(self):
+        return reverse('noticias:noticias')
+    
+class EliminarNoticia(DeleteView):
+    model = Noticias
+    template_name = 'noticias/eliminar-noticia.html'
+    
     def get_success_url(self):
         return reverse('noticias:noticias')
